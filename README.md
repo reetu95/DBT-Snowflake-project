@@ -168,16 +168,41 @@ http://localhost:8081
 
 ## Screenshots
 
-Screenshots will be added in a separate update.
+### Tutorial Lineage Before Refactor
 
-Planned screenshots:
+![Tutorial lineage before refactor](assets/screenshots/01_tutorial_lineage_before_refactor.png)
 
-- Tutorial lineage before refactor
-- Portfolio lineage after refactor
-- `dbt run --full-refresh` success
-- `dbt test` success
-- Gold tables created in Snowflake
-- Final `OBT_AIRBNB_BOOKINGS` table preview
+The tutorial version creates an OBT model and then creates helper models for bookings, listings, and hosts.
+
+### Portfolio Lineage After Refactor
+
+![Portfolio lineage after refactor](assets/screenshots/02_portfolio_lineage_after_refactor.png)
+
+The portfolio version has a cleaner flow from staging sources to bronze, silver, dimension, fact, and OBT models.
+
+### dbt Run Success
+
+![dbt run success](assets/screenshots/03_dbt_run_success.png)
+
+The portfolio project builds 10 dbt models successfully in Snowflake.
+
+### dbt Test Success
+
+![dbt test success](assets/screenshots/04_dbt_test_success.png)
+
+All 27 dbt data tests passed successfully.
+
+### Gold Tables Created
+
+![Gold tables created](assets/screenshots/05_gold_tables_created.png)
+
+The portfolio extension creates clean gold layer tables: `DIM_HOSTS`, `DIM_LISTINGS`, `FCT_BOOKINGS`, and `OBT_AIRBNB_BOOKINGS`.
+
+### Final OBT Table Preview
+
+![Final OBT table preview](assets/screenshots/06_final_obt_table_preview.png)
+
+The final OBT table combines booking, listing, and host data into one analytics-ready reporting table.
 
 ## Final Output
 
