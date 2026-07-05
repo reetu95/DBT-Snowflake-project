@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: dim_hosts
+    description: Host dimension built from cleaned host data.
+    columns:
+      - name: HOST_ID
+        data_tests:
+          - not_null
+          - unique
+
+  - name: dim_listings
+    description: Listing dimension built from cleaned listing data.
+    columns:
+      - name: LISTING_ID
+        data_tests:
+          - not_null
+          - unique
+      - name: HOST_ID
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_hosts')
+                field: HOST_ID
+
+  - name: fct_bookings
+    description: Booking fact table with booking amount and booking status.
+    columns:
+      - name: BOOKING_ID
+        data_tests:
+          - not_null
+          - unique
+      - name: LISTING_ID
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_listings')
+                field: LISTING_ID
+
+  - name: obt_airbnb_bookings
+    description: Final reporting table that combines bookings, listings, and hosts.
+    columns:
+      - name: BOOKING_ID
+        data_tests:
+          - not_null

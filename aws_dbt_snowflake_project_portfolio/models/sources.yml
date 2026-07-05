@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: staging
+    database: AIRBNB
+    schema: staging
+    description: Raw Airbnb data stored in Snowflake staging tables.
+    tables:
+      - name: listings
+        description: Source table with Airbnb listing details.
+        columns:
+          - name: LISTING_ID
+            data_tests:
+              - not_null
+      - name: bookings
+        description: Source table with Airbnb booking transactions.
+        columns:
+          - name: BOOKING_ID
+            data_tests:
+              - not_null
+      - name: hosts
+        description: Source table with Airbnb host details.
+        columns:
+          - name: HOST_ID
+            data_tests:
+              - not_null

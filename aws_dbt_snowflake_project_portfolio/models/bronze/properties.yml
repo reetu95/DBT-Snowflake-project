@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: bronze_bookings
+    description: Raw bookings data loaded from the Snowflake staging source.
+    columns:
+      - name: BOOKING_ID
+        data_tests:
+          - not_null
+          - unique
+  - name: bronze_hosts
+    description: Raw hosts data loaded from the Snowflake staging source.
+    columns:
+      - name: HOST_ID
+        data_tests:
+          - not_null
+          - unique
+  - name: bronze_listings
+    description: Raw listings data loaded from the Snowflake staging source.
+    columns:
+      - name: LISTING_ID
+        data_tests:
+          - not_null
+          - unique
