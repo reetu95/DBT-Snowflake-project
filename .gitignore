@@ -7,4 +7,21 @@ wheels/
 *.egg-info
 
 # Virtual environments
-.venv
+.venv/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# dbt generated/local files
+logs/
+target/
+dbt_packages/
+.user.yml
+**/.user.yml
+
+# credentials
+profiles.yml
+**/profiles.yml
+
+
